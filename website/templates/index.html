@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AnimeRec Platform</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js" defer></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <a href="#" class="logo">
+        <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="Our Logo" />
+      </a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <div class="content">
+    <main class="container">
+      <section id="search">
+        <div class="search-banner">
+          <h1>Welcome!</h1>
+          <h4>Begin by typing and clicking your anime and genres from the dropdown menu:</h4>
+
+          <!-- Anime Input -->
+          <div class="input-group">
+            <label for="anime-input">Add Anime:</label>
+            <input type="text" id="anime-input" autocomplete="off" placeholder="Start typing anime name..." />
+            <ul id="anime-suggestions" class="suggestions-list"></ul>
+            <div id="selected-anime" class="tags-container"></div>
+          </div>
+
+          <!-- Genre Input -->
+          <div class="input-group">
+            <label for="genre-input">Add Genres:</label>
+            <input type="text" id="genre-input" autocomplete="off" placeholder="Start typing genres..." />
+            <ul id="genre-suggestions" class="suggestions-list"></ul>
+            <div id="selected-genres" class="tags-container"></div>
+          </div>
+
+          <!-- Generate Button -->
+          <div class="generate-btn-wrapper">
+            <button id="submit-btn" class="generate-btn">Generate</button>
+          </div>
+
+          <!-- Mode Buttons -->
+          <div id="mode-buttons" class="mode-buttons">
+            <button id="btn-normal" class="mode-btn">Show Top 5 (Normal)</button>
+            <button id="btn-personalize" class="mode-btn">Show Top 5 (Personalized)</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recommendations -->
+      <section id="recommendations">
+        <h2>Your Recommendations:</h2>
+        <div id="recommendations-list"></div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
